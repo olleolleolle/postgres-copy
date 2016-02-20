@@ -6,9 +6,9 @@ require 'fixtures/test_extended_model'
 require 'fixtures/extra_field'
 require 'fixtures/reserved_word_model'
 require 'rspec'
-require 'rspec/autorun'
 
 RSpec.configure do |config|
+  config.expect_with(:rspec) { |c| c.syntax = :should }
   config.before(:suite) do
     # we create a test database if it does not exist
     # I do not use database users or password for the tests, using ident authentication instead
@@ -46,5 +46,4 @@ RSpec.configure do |config|
       retry
     end
   end
-
 end
