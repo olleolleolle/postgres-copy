@@ -43,7 +43,7 @@ describe "COPY TO" do
       lambda do
         TestModel.copy_to('/tmp/bogus_path') do |row|
         end
-      end.should raise_error
+      end.should raise_error /You have to choose between exporting to a file or receiving the lines inside a block/
     end
   end
 end
